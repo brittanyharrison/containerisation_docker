@@ -43,4 +43,10 @@ Benefits:
 - `docker kill`: kills container by stopping execution. stop gives time to shut down gracefully
 - `docker commit` [container id][username/imagename]: creates new image of an edited container on local system
 
-## Micro-services Architechture 
+## Micorseverces Architecture vs Monolithlic Architecture
+
+- A **monolithic application** is built as a single and indivisible unit. Usually, such a solution comprises a client-side user interface, a server side-application, and a database.
+
+- A **Microservices architecture** breaks it down into a collection of smaller independent units. These units carry out every application process as a separate service. So all the services have their own logic and the database as well as perform the specific functions.
+
+![img](img/monovsmicro.png)
