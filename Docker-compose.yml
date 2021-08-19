@@ -1,0 +1,9 @@
+version: "1"
+services:
+web:
+  image: brittanyharrison/eng89_docker
+  volumes:
+    "./index.html:/usr/share/nginx/html/index.html"
+    "./assets/:/usr/share/nginx/html/assets/"
+    ports:
+      - "99:80"

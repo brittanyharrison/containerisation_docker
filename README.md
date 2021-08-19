@@ -84,6 +84,7 @@ docker run -d -p 80:80 nginx
 docker cp index.html a4700feaa1c0:/usr/share/nginx/html
 ```
 About me page on localhost:
+
 ![gif](img/Hnet-image.gif)
 
 ## DockerHub 
@@ -91,11 +92,49 @@ About me page on localhost:
 
 #### Commit to save changes to image, then push to dockerhub 
 ```
-docker commit <container_id> brittanyharrison/repo_name
+# docker commit <container_id> brittanyharrison/repo_name
 docker push brittanyharrison/repo_name
 
 ```
 **Note**:Repository name and local folder name must match 
+
+## Building a Docker Image
+
+- To build a docker image we need to create a Dockerfile
+
+```dockerfile
+# build image from official image of nginx
+FROM nginx
+
+# Label used as reference, maintainer to add info for who built image - optional
+LABEL MAINTAINER=bkharrison94@gmail.com
+
+# copy customised index.html file
+COPY index.html /usr/share/nginx/html
+
+# expose port 80 to launch in browser
+EXPOSE 80
+
+# CMD will run this command once all other instructions have been successfully completed
+CMD ["nginx", "-g", "daemon off;"]
+```
+- To build the image run the commad:
+
+```bash
+# The . is the current location 
+docker build -t brittanhyharrison/eng89_aboutme .
+```
+- To check the image is created: `docker images`
+
+- To run the image on a port 
+
+```bash
+# maps to port 50 on localhost 
+docker run -d -p 50:80 brittanhyharrison/eng89_aboutme
+```
+
+## Docker Volumes 
+
 
 # Micorseverces Architecture vs Monolithlic Architecture
 
