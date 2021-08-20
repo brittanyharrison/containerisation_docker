@@ -122,7 +122,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ```bash
 # The . is the current location 
-docker build -t brittanhyharrison/eng89_aboutme .
+docker build -t brittanhyharrison/eng89_docker .
 ```
 - To check the image is created: `docker images`
 
@@ -130,10 +130,18 @@ docker build -t brittanhyharrison/eng89_aboutme .
 
 ```bash
 # maps to port 50 on localhost 
-docker run -d -p 50:80 brittanhyharrison/eng89_aboutme
+docker run -d -p 50:80 brittanhyharrison/eng89_docker
 ```
 
 ## Docker Volumes 
+- To sync 
+```shell
+docker run -d -v index.html:/usr/share/nginx/html/ -p 5000:80 brittanyharrison/eng89_docker
+```
+
+- `docker volume ls`
+- `docker volume inspect <volume-name>`
+- `docker volume create --name nginx-volume`
 
 
 # Micorseverces Architecture vs Monolithlic Architecture
